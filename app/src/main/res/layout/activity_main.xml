@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cookie"
+    tools:context="com.example.grey_hat.dineinn.MainActivity">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_above="@+id/CentRef"
+    android:gravity="center">
+  <ImageView
+      android:id="@+id/logo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/dineinn"
+      android:layout_centerInParent="true"
+      android:layout_alignParentTop="true"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/tag"
+      android:layout_below="@+id/logo"
+      android:text="The difference between eating\nand dining"
+      android:textSize="30sp"
+      android:textColor="#1E3EC1"
+      android:textStyle="bold"
+      android:layout_centerHorizontal="true"
+      android:fontFamily="cursive"
+      android:gravity="center"
+      />
+</RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/CentRef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+    </LinearLayout>
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/CentRef"
+        android:id="@+id/googleSignIn"
+        android:layout_centerHorizontal="true">
+
+    </com.google.android.gms.common.SignInButton>
+
+</RelativeLayout>

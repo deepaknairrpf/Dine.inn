@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "236635417988",
+    "firebase_url": "https://dinein-f5047.firebaseio.com",
+    "project_id": "dinein-f5047",
+    "storage_bucket": "dinein-f5047.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236635417988:android:80684629d4985a56",
+        "android_client_info": {
+          "package_name": "com.example.grey_hat.dineinn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236635417988-jts1rgdf37t1enu2bm8knkcdvkauvvnd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grey_hat.dineinn",
+            "certificate_hash": "0080F16CFDA52D70FA2EC7AB39713A043B1A3D97"
+          }
+        },
+        {
+          "client_id": "236635417988-ccbsj2jftjeu0ect7pe7h7m365em3vmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZuVoWbvzL3Et5IsHDkhkBJAlZibF9_NY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236635417988-ccbsj2jftjeu0ect7pe7h7m365em3vmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
