@@ -204,7 +204,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.googleSignIn:
                 progressBar = new ProgressDialog(v.getContext());
-                progressBar.setCancelable(true);
                 progressBar.setMessage("Loading foodville ...");
                 progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progressBar.setProgress(0);
