@@ -36,6 +36,7 @@ import com.elmargomez.typer.Font;
 import com.elmargomez.typer.Typer;
 import com.example.grey_hat.dineinn.Cuisine;
 import com.example.grey_hat.dineinn.CuisineFrag;
+import com.example.grey_hat.dineinn.FoodItem;
 import com.example.grey_hat.dineinn.MainActivity;
 import com.example.grey_hat.dineinn.R;
 import com.google.android.gms.auth.api.Auth;
@@ -48,11 +49,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class signedIn extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 private GoogleApiClient mGoogleApiClient;
     private String acctName;
     private String emailAddr;
+    private static ArrayList<FoodItem> basket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,6 +181,10 @@ private GoogleApiClient mGoogleApiClient;
         mGoogleApiClient.connect();
         super.onStart();
 
+    }
+
+    public void addToBasket(FoodItem foodItem) {
+        basket.add(foodItem);
     }
 
 

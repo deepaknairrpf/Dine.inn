@@ -66,7 +66,7 @@ public class CuisineFrag extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        progressBar = (ProgressBar)getView().findViewById(R.id.pbLoading);
+       progressBar = (ProgressBar)getView().findViewById(R.id.pbLoading);
         progressBar.setVisibility(View.VISIBLE);
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Cuisine");
         mrecyclerView=(RecyclerView)getView().findViewById(R.id.CuisineRecylcList);
@@ -81,7 +81,6 @@ public class CuisineFrag extends Fragment {
                 viewHolder.mview.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getContext(),post_key, Toast.LENGTH_SHORT).show();
                         Fragment food = new Food();
                         Bundle bundle = new Bundle();
                         bundle.putString("food",post_key);
