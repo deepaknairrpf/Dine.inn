@@ -105,10 +105,12 @@ public class Food extends Fragment {
                 else {
                     viewHolder.setInVisibility();
                 }
-                viewHolder.mview.setOnClickListener(new View.OnClickListener() {
+                viewHolder.mview.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public boolean onLongClick(View v) {
                         ((signedIn)getActivity()).addToBasket(model);
+                        Toast.makeText(getContext(),model.getName()+" added to basket",Toast.LENGTH_LONG).show();
+                        return true;
                     }
                 });
             }

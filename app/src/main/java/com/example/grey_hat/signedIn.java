@@ -34,8 +34,10 @@ import android.widget.Toast;
 
 import com.elmargomez.typer.Font;
 import com.elmargomez.typer.Typer;
+import com.example.grey_hat.dineinn.BasketFrag;
 import com.example.grey_hat.dineinn.Cuisine;
 import com.example.grey_hat.dineinn.CuisineFrag;
+import com.example.grey_hat.dineinn.Food;
 import com.example.grey_hat.dineinn.FoodItem;
 import com.example.grey_hat.dineinn.MainActivity;
 import com.example.grey_hat.dineinn.R;
@@ -56,11 +58,14 @@ public class signedIn extends AppCompatActivity
 private GoogleApiClient mGoogleApiClient;
     private String acctName;
     private String emailAddr;
+    private android.support.v4.app.FragmentTransaction fragmentTransaction;
+    private  android.support.v4.app.FragmentManager fragmentManager;
     private static ArrayList<FoodItem> basket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signed_in);
+        basket=new ArrayList<>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -94,8 +99,8 @@ private GoogleApiClient mGoogleApiClient;
         navHeadtext.setText(acctName);
         TextView navEmail=(TextView)navHeader.findViewById(R.id.navEmail);
         navEmail.setText(emailAddr);
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentManager= getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
         Fragment frag = new CuisineFrag();
         fragmentTransaction.add(R.id.cuisine_container, frag, "Cuisine");
         fragmentTransaction.commit();
@@ -146,8 +151,15 @@ private GoogleApiClient mGoogleApiClient;
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.basket) {
+            Fragment frag = new BasketFrag();
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("Basket",basket);
+            frag.setArguments(bundle);
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.cuisine_container,frag);
+            ft.addToBackStack(null);
+            ft.commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.signOut) {
