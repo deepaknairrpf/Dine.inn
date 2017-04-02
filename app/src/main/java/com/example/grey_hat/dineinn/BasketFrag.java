@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,8 @@ public class BasketFrag extends Fragment {
 
     private RecyclerView mrecyclerView;
     private ArrayList<FoodItem> basket;
+    private Button orderButton;
+    private Context mContext;
     public BasketFrag() {
         // Required empty public constructor
     }
@@ -44,7 +47,7 @@ public class BasketFrag extends Fragment {
             basket = bundle.getParcelableArrayList("Basket");
         }
         View view = inflater.inflate(R.layout.fragment_basket, container, false);
-        Button orderButton=(Button)view.findViewById(R.id.orderButton);
+       orderButton=(Button)view.findViewById(R.id.orderButton);
         if(basket==null || basket.isEmpty()) {
             orderButton.setVisibility(View.INVISIBLE);
             Toast.makeText(getContext(), "Basket is empty", Toast.LENGTH_SHORT).show();
@@ -55,66 +58,19 @@ public class BasketFrag extends Fragment {
 
             }
         });
-
+            mContext=getContext();
         return view;
     }
-    public static class BasketViewHolder extends RecyclerView.ViewHolder{
-        View mview;
-        RecyclerView.LayoutParams params ;
-        public BasketViewHolder(View itemView) {
-            super(itemView);
-            mview=itemView;
-            params=(RecyclerView.LayoutParams)itemView.getLayoutParams();
-        }
-        public void setName(String name)
-        {
-            TextView foodName = (TextView)mview.findViewById(R.id.FoodItemName);
-            foodName.setText(name);
-        }
-        public void setImage(Context ctx, String img) {
-            ImageView foodImg = (ImageView)mview.findViewById(R.id.FoodCardImg);
-            Picasso.with(ctx).load(img).into(foodImg);
 
-        }
-        public void setPrice(String price) {
-            TextView priceText = (TextView)mview.findViewById(R.id.FoodPrice);
-            priceText.setText(price);
-        }
-        public void setInVisibility() {
-            mview.setVisibility(View.GONE);
-            params.height=0;
-            params.width=0;
-        }
-
-    }
     @Override
     public void onStart() {
         super.onStart();
         mrecyclerView=(RecyclerView)getView().findViewById(R.id.BasketRecylcList);
         mrecyclerView.setNestedScrollingEnabled(false);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mrecyclerView.setAdapter(new RecyclerView.Adapter<BasketViewHolder>() {
-            @Override
-            public BasketViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_card_view,parent,false);
-                BasketViewHolder viewHolder = new BasketViewHolder(view);
-                return viewHolder;
-            }
-
-            @Override
-            public void onBindViewHolder(BasketViewHolder holder, int position) {
-                    holder.setName(basket.get(position).getName());
-                    holder.setImage(getContext(),basket.get(position).getImgUrl());
-
-            }
-
-            @Override
-            public int getItemCount() {
-                return basket.size();
-            }
-        });
-
-
+        BasketAdapter adapter = new BasketAdapter(basket,getContext(),orderButton);
+        mrecyclerView.setAdapter(adapter);
+        Log.e("Basket size",Integer.toString(basket.size()));
 
 
     }

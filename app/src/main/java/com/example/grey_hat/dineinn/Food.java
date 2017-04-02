@@ -109,7 +109,7 @@ public class Food extends Fragment {
                     @Override
                     public boolean onLongClick(View v) {
                         ((signedIn)getActivity()).addToBasket(model);
-                        Toast.makeText(getContext(),model.getName()+" added to basket",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(),model.getName()+" added to basket",Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 });
