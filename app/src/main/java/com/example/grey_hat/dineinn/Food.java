@@ -95,9 +95,9 @@ public class Food extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, final FoodItem model, final int position) {
-                int count =(int)model.getCounter();
+               boolean availability = model.getAvailability();
 
-                if(count>0) {
+                if(availability) {
                     viewHolder.setName(model.getName());
                     viewHolder.setImage(getActivity().getApplicationContext(), model.getImgUrl());
                     viewHolder.setPrice("Price : " + Long.toString(model.getPrice()));

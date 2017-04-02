@@ -4,15 +4,19 @@ package com.example.grey_hat.dineinn;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -39,7 +43,20 @@ public class BasketFrag extends Fragment {
         if(bundle!=null) {
             basket = bundle.getParcelableArrayList("Basket");
         }
-        return inflater.inflate(R.layout.fragment_basket, container, false);
+        View view = inflater.inflate(R.layout.fragment_basket, container, false);
+        Button orderButton=(Button)view.findViewById(R.id.orderButton);
+        if(basket==null || basket.isEmpty()) {
+            orderButton.setVisibility(View.INVISIBLE);
+            Toast.makeText(getContext(), "Basket is empty", Toast.LENGTH_SHORT).show();
+        }
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        return view;
     }
     public static class BasketViewHolder extends RecyclerView.ViewHolder{
         View mview;

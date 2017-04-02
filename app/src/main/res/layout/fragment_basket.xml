@@ -11,6 +11,7 @@
         android:id="@+id/BasketRecylcList">
     </android.support.v7.widget.RecyclerView>
     <Button
+        android:id="@+id/orderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/BasketRecylcList"
