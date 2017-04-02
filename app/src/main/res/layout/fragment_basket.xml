@@ -17,5 +17,6 @@
         android:layout_centerInParent="true"
         android:text="Confirm order"
         android:background="#ba0d0d"
+        android:layout_marginBottom="10dp"
         android:padding="15dp"/>
 </RelativeLayout>
