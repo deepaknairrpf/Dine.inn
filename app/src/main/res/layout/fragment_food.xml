@@ -5,6 +5,13 @@
     tools:context="com.example.grey_hat.dineinn.Food">
 
     <!-- TODO: Update blank fragment layout -->
+    <ProgressBar
+        android:id="@+id/FoodpbLoading"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.TextView.SpinnerItem"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

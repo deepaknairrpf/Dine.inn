@@ -47,17 +47,17 @@ public class BasketFrag extends Fragment {
             basket = bundle.getParcelableArrayList("Basket");
         }
         View view = inflater.inflate(R.layout.fragment_basket, container, false);
-       orderButton=(Button)view.findViewById(R.id.orderButton);
+      // orderButton=(Button)view.findViewById(R.id.orderButton);
         if(basket==null || basket.isEmpty()) {
-            orderButton.setVisibility(View.INVISIBLE);
+           // orderButton.setVisibility(View.INVISIBLE);
             Toast.makeText(getContext(), "Basket is empty", Toast.LENGTH_SHORT).show();
         }
-        orderButton.setOnClickListener(new View.OnClickListener() {
+       /* orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
             mContext=getContext();
         return view;
     }

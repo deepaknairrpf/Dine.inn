@@ -84,6 +84,8 @@ public class Food extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        progressBar = (ProgressBar)getView().findViewById(R.id.FoodpbLoading);
+        progressBar.setVisibility(View.VISIBLE);
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Food").child(food);
         mrecyclerView=(RecyclerView)getView().findViewById(R.id.FoodRecylcList);
         Log.e("Database",databaseReference.getKey());
